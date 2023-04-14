@@ -33,10 +33,14 @@ spring:
           initial-interval: 5000
           max-attempts: 10
           max-interval: 30000
+
+application:
   security:
-    user:
-      name: user
-      password: password
+    jwt:
+      secret-key: 404E635266556A586E3272357538782F413F4428472B4B6250645367566B5970
+      expiration: 60000
+      refresh-token:
+        expiration: 604800000
 
 management:
   endpoints:
@@ -57,10 +61,4 @@ rabbitmq:
 jwt:
   token: Re$tToken
 
-feign:
-  client:
-    config:
-      default:
-        connectTimeout: 5000
-        readTimeout: 5000
-        loggerLevel: basic
+# https://github.com/ali-bouali/spring-boot-3-jwt-security
